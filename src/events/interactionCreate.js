@@ -2,10 +2,8 @@ const { Events, ChannelType, EmbedBuilder, ActionRowBuilder, StringSelectMenuBui
 const fs = require('fs').promises;
 const path = require('path');
 
-// Caminho para o arquivo de configuração
 const configPath = path.join(__dirname, '..', 'data', 'config.json');
 
-// Função para carregar configurações
 async function loadConfig() {
     try {
         const data = await fs.readFile(configPath, 'utf8');
@@ -15,7 +13,6 @@ async function loadConfig() {
     }
 }
 
-// Função para salvar configurações
 async function saveConfig(config) {
     await fs.writeFile(configPath, JSON.stringify(config, null, 4), 'utf8');
 }
@@ -30,7 +27,6 @@ module.exports = {
                 config.servers[interaction.guildId] = {};
             }
 
-            // Comando /config
             if (interaction.isChatInputCommand() && interaction.commandName === 'config') {
                 // Verificar permissões de administrador
                 if (!interaction.member.permissions.has('Administrator')) {
@@ -91,7 +87,6 @@ module.exports = {
                 });
             }
 
-            // Seleção do tipo de configuração
             if (interaction.isStringSelectMenu() && interaction.customId === 'config_select') {
                 const selected = interaction.values[0];
 
@@ -131,7 +126,6 @@ module.exports = {
                 }
             }
 
-            // Processamento da seleção de canal
             if (interaction.isChannelSelectMenu()) {
                 const channelId = interaction.values[0];
                 const configType = interaction.customId.split('_')[1];
@@ -155,7 +149,6 @@ module.exports = {
                 }
             }
 
-            // Processamento do modal de intervalo
             if (interaction.isModalSubmit() && interaction.customId === 'interval_modal') {
                 const intervalValue = parseInt(interaction.fields.getTextInputValue('interval_input'));
 
