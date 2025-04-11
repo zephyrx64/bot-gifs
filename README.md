@@ -1,5 +1,5 @@
 # Random GIFs Bot
-
+# discord novo:zephyr.gov
 Um bot Discord que envia automaticamente fotos de perfil, GIFs e banners dos membros do servidor em canais específicos.
 
 ## 🌟 Funcionalidades
