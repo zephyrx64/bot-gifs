@@ -1,7 +1,6 @@
 require('dotenv').config();
 
 module.exports = {
-    // Bot Colors
     colors: {
         embed: process.env.EMBED_COLOR,
         success: process.env.SUCCESS_COLOR,
@@ -10,14 +9,12 @@ module.exports = {
         info: process.env.INFO_COLOR
     },
 
-    // Bot Settings
     settings: {
         token: process.env.TOKEN,
         ownerId: process.env.OWNER_ID,
         defaultInterval: parseInt(process.env.DEFAULT_INTERVAL)
     },
-
-    // Embed Defaults
+    
     embedDefaults: {
         author: {
             name: 'Random GIFs Bot',
